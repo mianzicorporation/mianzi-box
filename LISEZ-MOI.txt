@@ -1,0 +1,11 @@
+MIANZI BOX — SITE WEB
+
+Fichier principal : index.html
+
+Avant publication :
+1. Ouvrir index.html et remplacer A_REMPLACER_PAR_VOTRE_NUMERO dans WHATSAPP_NUMBER par le numéro WhatsApp au format international sans + ni espaces (ex. 33612345678).
+2. Saveurs configurées : coco, bissap / hibiscus, chocolat et nature. Vérifier prix, frais et zone de livraison.
+3. Ajouter les mentions légales et la politique de confidentialité adaptées à votre activité.
+4. Publier index.html via GitHub Pages ou un hébergeur statique gratuit.
+
+Le site prépare une demande de commande; il n'encaisse pas les paiements et ne confirme pas automatiquement le stock ou la livraison.
