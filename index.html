@@ -77,5 +77,12 @@ document.querySelectorAll('.add').forEach(button=>button.addEventListener('click
 document.getElementById('orderForm').addEventListener('submit',event=>{event.preventDefault();const items=cart();const count=items.reduce((s,x)=>s+x.qty,0);const status=document.getElementById('success');if(count<4){status.style.display='block';status.textContent='Ajoute au moins 4 pots pour continuer.';return;}const data=new FormData(event.currentTarget);const productTotal=count*POT_PRICE;const lines=items.map(x=>`- ${x.name} : ${x.qty} pot(s)`).join('\n');const message=`Bonjour Mianzi Box ! Je souhaite passer une commande.\n\nNom : ${data.get('name')}\nTéléphone : ${data.get('phone')}\nAdresse : ${data.get('address')}\nJour souhaité : ${data.get('day')}\nHoraire : ${data.get('time')}\n\nProduits :\n${lines}\n\nNombre de pots : ${count}\nTotal produits : ${euro(productTotal)}\nLivraison estimée : ${euro(DELIVERY_FEE)}\nTotal estimé : ${euro(productTotal+DELIVERY_FEE)}\nPrécisions : ${data.get('notes')||'Aucune'}\n\nMerci de confirmer la disponibilité, l'adresse et le créneau.`;if(!/^\d{8,15}$/.test(WHATSAPP_NUMBER)){status.style.display='block';status.textContent='Le formulaire fonctionne, mais le numéro WhatsApp de Mianzi Box n’est pas encore configuré. Remplace WHATSAPP_NUMBER dans le fichier index.html par ton numéro international sans + ni espaces, puis réessaie. Récapitulatif de commande préparé :\n\n'+message;return;}window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,'_blank','noopener');status.style.display='block';status.textContent='Ton récapitulatif est prêt dans WhatsApp. Envoie le message pour transmettre ta demande de commande.';});
 document.getElementById('year').textContent=new Date().getFullYear();updateTotal();
 </script>
+  
+<a href="https://wa.me/33666580888?text=Bonjour%20Mianzi%20Box%2C%20je%20souhaite%20passer%20une%20commande."
+   target="_blank"
+   rel="noopener"
+   style="display:inline-block;background:#25D366;color:white;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:bold;margin:12px 0;">
+  Commander sur WhatsApp
+</a>
 </body>
 </html>
